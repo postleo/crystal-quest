@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 20% 4%;
+    --foreground: 180 100% 80%;
+
+    --card: 240 20% 8%;
+    --card-foreground: 180 100% 80%;
+
+    --popover: 240 20% 8%;
+    --popover-foreground: 180 100% 80%;
+
+    --primary: 180 100% 50%;
+    --primary-foreground: 240 20% 4%;
+
+    --secondary: 270 80% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 20% 15%;
+    --muted-foreground: 180 40% 50%;
+
+    --accent: 120 80% 50%;
+    --accent-foreground: 240 20% 4%;
+
+    --destructive: 0 80% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 180 60% 25%;
+    --input: 240 20% 15%;
+    --ring: 180 100% 50%;
+
+    --radius: 0.25rem;
+
+    --neon-orange: 25 100% 55%;
+    --neon-pink: 320 100% 60%;
+    --star-gold: 45 100% 60%;
+
+    --sidebar-background: 240 20% 6%;
+    --sidebar-foreground: 180 100% 80%;
+    --sidebar-primary: 180 100% 50%;
+    --sidebar-primary-foreground: 240 20% 4%;
+    --sidebar-accent: 270 80% 60%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 180 60% 25%;
+    --sidebar-ring: 180 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Press Start 2P', monospace;
+    image-rendering: pixelated;
+  }
+}
+
+@layer utilities {
+  .font-pixel {
+    font-family: 'Press Start 2P', monospace;
+  }
+
+  .scanline-overlay {
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.15) 2px,
+      rgba(0, 0, 0, 0.15) 4px
+    );
+    pointer-events: none;
+  }
+
+  .text-glow-cyan {
+    text-shadow: 0 0 10px hsl(180 100% 50%), 0 0 20px hsl(180 100% 50% / 0.5);
+  }
+
+  .text-glow-orange {
+    text-shadow: 0 0 10px hsl(25 100% 55%), 0 0 20px hsl(25 100% 55% / 0.5);
+  }
+
+  .crt-border {
+    box-shadow:
+      inset 0 0 60px rgba(0, 255, 255, 0.05),
+      0 0 20px rgba(0, 255, 255, 0.1);
+    border: 2px solid hsl(180 60% 25%);
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .animate-blink {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes star-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
+}
